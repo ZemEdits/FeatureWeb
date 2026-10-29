@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free online tools for image editing, image conversion, resizing and everyday calculations.">
+  <title>ToolNest — Free Online Tools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#"><span class="brand-icon">✦</span> ToolNest</a>
+    <nav><a href="#tools">Tools</a><a href="#about">About</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">SIMPLE • FREE • ONLINE</p>
+      <h1>Useful tools, all in one place.</h1>
+      <p>Edit and convert images, resize photos, and calculate everyday numbers — right in your browser.</p>
+      <a class="primary-link" href="#tools">Explore free tools ↓</a>
+    </section>
+
+    <section id="tools" class="tools-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">TOOLBOX</p><h2>Choose a tool</h2></div>
+        <input id="toolSearch" type="search" placeholder="Search tools..." aria-label="Search tools">
+      </div>
+
+      <div class="tool-grid">
+        <article class="tool-card" data-search="photo editor image filter brightness contrast grayscale">
+          <div class="tool-icon blue">▧</div><h3>Photo Editor</h3>
+          <p>Preview filters and adjust brightness or contrast.</p>
+          <button class="tool-button" data-panel="photoPanel">Open tool</button>
+        </article>
+        <article class="tool-card" data-search="image converter jpg jpeg png webp convert">
+          <div class="tool-icon green">⇄</div><h3>Image Converter</h3>
+          <p>Convert images between PNG, JPG and WebP.</p>
+          <button class="tool-button" data-panel="convertPanel">Open tool</button>
+        </article>
+        <article class="tool-card" data-search="resize image photo dimensions pixels">
+          <div class="tool-icon purple">⤢</div><h3>Image Resizer</h3>
+          <p>Change image dimensions and download the result.</p>
+          <button class="tool-button" data-panel="resizePanel">Open tool</button>
+        </article>
+        <article class="tool-card" data-search="calculator percentage gst discount">
+          <div class="tool-icon orange">％</div><h3>Percentage Calculator</h3>
+          <p>Calculate a percentage of any number.</p>
+          <button class="tool-button" data-panel="calcPanel">Open tool</button>
+        </article>
+      </div>
+
+      <section class="workspace" id="photoPanel">
+        <div class="workspace-title"><div><p class="eyebrow">IMAGE TOOL</p><h2>Photo Editor</h2></div><button class="close-button" data-close>Close</button></div>
+        <label class="file-picker">Choose an image<input id="photoFile" type="file" accept="image/*"></label>
+        <div class="controls-row">
+          <label>Brightness <input id="brightness" type="range" min="50" max="150" value="100"></label>
+          <label>Contrast <input id="contrast" type="range" min="50" max="150" value="100"></label>
+          <label>Filter <select id="filter"><option value="none">Original</option><option value="grayscale(1)">Grayscale</option><option value="sepia(1)">Sepia</option><option value="saturate(1.7)">Vivid</option></select></label>
+        </div>
+        <div class="preview-wrap"><canvas id="photoCanvas"></canvas><p id="photoHint">Choose an image to begin. Your image is processed in your browser.</p></div>
+        <button id="downloadPhoto" class="primary-button" disabled>Download edited image</button>
+      </section>
+
+      <section class="workspace" id="convertPanel">
+        <div class="workspace-title"><div><p class="eyebrow">IMAGE TOOL</p><h2>Image Converter</h2></div><button class="close-button" data-close>Close</button></div>
+        <label class="file-picker">Choose an image<input id="convertFile" type="file" accept="image/*"></label>
+        <label class="field-label">Convert to
+          <select id="convertFormat"><option value="image/png">PNG</option><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option></select>
+        </label>
+        <p class="hint">Note: JPG does not support transparency, so transparent areas may become black or a browser-dependent background.</p>
+        <button id="convertDownload" class="primary-button" disabled>Convert and download</button>
+      </section>
+
+      <section class="workspace" id="resizePanel">
+        <div class="workspace-title"><div><p class="eyebrow">IMAGE TOOL</p><h2>Image Resizer</h2></div><button class="close-button" data-close>Close</button></div>
+        <label class="file-picker">Choose an image<input id="resizeFile" type="file" accept="image/*"></label>
+        <div class="controls-row">
+          <label>Width (px)<input id="resizeWidth" type="number" min="1" max="8000" placeholder="e.g. 800"></label>
+          <label>Height (px)<input id="resizeHeight" type="number" min="1" max="8000" placeholder="e.g. 600"></label>
+        </div>
+        <label class="check-label"><input id="keepRatio" type="checkbox" checked> Keep original aspect ratio</label>
+        <button id="resizeDownload" class="primary-button" disabled>Resize and download</button>
+      </section>
+
+      <section class="workspace" id="calcPanel">
+        <div class="workspace-title"><div><p class="eyebrow">CALCULATOR</p><h2>Percentage Calculator</h2></div><button class="close-button" data-close>Close</button></div>
+        <div class="controls-row">
+          <label>Percentage (%)<input id="percentValue" type="number" placeholder="e.g. 18"></label>
+          <label>Number<input id="percentBase" type="number" placeholder="e.g. 500"></label>
+        </div>
+        <button id="calculatePercent" class="primary-button">Calculate</button>
+        <p class="result" id="percentResult" aria-live="polite">Your answer will appear here.</p>
+      </section>
+    </section>
+
+    <section id="about" class="about">
+      <p class="eyebrow">ABOUT TOOLNEST</p><h2>Fast, simple and privacy-minded.</h2>
+      <p>Image tools on this starter website work locally in your browser. Images selected for these tools are not uploaded to a server by this page.</p>
+    </section>
+  </main>
+
+  <footer><span>© <span id="year"></span> ToolNest</span><span>Free tools for everyday tasks</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
