@@ -9,3 +9,212 @@ nav{display:flex;gap:24px}nav a{color:#4b5870;text-decoration:none;font-weight:6
 .tool-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.tool-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:23px;box-shadow:0 5px 20px #24324a05}.tool-card h3{margin:16px 0 5px;font:700 1.05rem Manrope,Arial,sans-serif}.tool-card p{margin:0 0 18px;color:var(--muted);font-size:.9rem;min-height:65px}.tool-icon{height:46px;width:46px;display:grid;place-items:center;border-radius:13px;font-size:1.6rem;font-weight:700}.blue{background:#eaf0ff;color:#315eea}.green{background:#e6f8ee;color:#16824b}.purple{background:#f0eaff;color:#7043c6}.orange{background:#fff0df;color:#b96a12}.tool-button,.close-button{border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 13px;color:var(--ink);font:600 .88rem 'DM Sans',Arial,sans-serif;cursor:pointer}.tool-button:hover,.close-button:hover{border-color:#aab8f9;color:var(--blue)}
 .workspace{display:none;margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px;scroll-margin-top:20px}.workspace.open{display:block}.workspace-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.workspace-title h2{font-size:1.45rem}.file-picker{display:inline-flex;align-items:center;gap:10px;padding:11px 14px;border:1px dashed #a8b6d3;background:#f8faff;border-radius:10px;font-weight:600;cursor:pointer}.file-picker input{max-width:220px}.controls-row{display:flex;flex-wrap:wrap;gap:18px;margin:20px 0}.controls-row label,.field-label{display:flex;flex-direction:column;gap:7px;font-weight:600;font-size:.9rem;min-width:170px;flex:1}.controls-row input[type=number],.controls-row select,.field-label select{width:100%;padding:10px;border:1px solid var(--line);border-radius:9px;background:#fff;font:inherit}.controls-row input[type=range]{width:100%;accent-color:var(--blue)}.preview-wrap{margin:18px 0;padding:20px;min-height:130px;border-radius:12px;background:#f7f9fc;border:1px solid var(--line);text-align:center}.preview-wrap canvas{max-width:100%;height:auto;display:none;margin:auto}.preview-wrap p{color:var(--muted);margin:24px 0}.field-label{max-width:260px;margin:18px 0}.hint{color:var(--muted);font-size:.9rem}.check-label{display:flex;align-items:center;gap:8px;margin:16px 0}.result{padding:15px;background:#f1f5ff;border-radius:10px;font-weight:700}.about{max-width:850px;margin:30px auto 70px;padding:40px 25px;text-align:center}.about h2{margin-bottom:12px}.about p:last-child{color:var(--muted)}footer{display:flex;justify-content:space-between;gap:15px;padding:24px max(5vw,20px);background:#fff;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 @media(max-width:900px){.tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding:60px 20px}}@media(max-width:560px){.site-header{height:64px}.tool-grid{grid-template-columns:1fr}.section-heading{align-items:stretch;flex-direction:column}.section-heading input{width:100%}.tool-card p{min-height:0}.workspace{padding:17px}.controls-row{flex-direction:column;gap:14px}.controls-row label{min-width:0}footer{flex-direction:column}.hero h1{font-size:2.3rem}}
+
+
+/* ToolNest visual upgrade */
+:root {
+  --ink: #172033;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --blue: #2563eb;
+  --paper: #f8fafc;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f8fafc;
+  color: #172033;
+  font-family: "DM Sans", Arial, sans-serif;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0 6%;
+}
+
+.brand {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #172033;
+  text-decoration: none;
+}
+
+.brand-icon {
+  color: #2563eb;
+}
+
+nav a {
+  color: #475569;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #2563eb;
+}
+
+.hero {
+  background: linear-gradient(135deg, #eff6ff 0%, #eef2ff 55%, #f5f3ff 100%);
+  border: 1px solid #dbeafe;
+  border-radius: 28px;
+  margin: 24px auto;
+  padding: 76px 24px 84px;
+  max-width: 1120px;
+  text-align: center;
+}
+
+.hero h1 {
+  color: #172033;
+  font-size: clamp(2.3rem, 6vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1.12;
+  max-width: 850px;
+  margin: 18px auto;
+}
+
+.hero p {
+  color: #64748b;
+  font-size: 1.08rem;
+  max-width: 650px;
+  margin: 16px auto 24px;
+}
+
+.eyebrow {
+  color: #2563eb;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.primary-link,
+button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary-link {
+  display: inline-block;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 13px 23px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+.primary-link:hover,
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.16);
+}
+
+.tools-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 22px;
+}
+
+.section-heading {
+  color: #172033;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.tool-grid {
+  gap: 20px;
+}
+
+.tool-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.035);
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  border-color: #bfdbfe;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+}
+
+.tool-card h2,
+.tool-card h3 {
+  color: #172033;
+}
+
+.tool-card p {
+  color: #64748b;
+}
+
+input,
+select,
+textarea {
+  max-width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 11px 13px;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid #dbeafe;
+  border-color: #2563eb;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 11px 17px;
+  font: inherit;
+  font-weight: 700;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    padding: 0 16px;
+  }
+
+  .hero {
+    margin: 14px;
+    padding: 48px 18px;
+    border-radius: 20px;
+  }
+
+  .tools-section {
+    padding: 32px 16px;
+  }
+
+  .tool-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-card {
+    padding: 19px;
+  }
+}
